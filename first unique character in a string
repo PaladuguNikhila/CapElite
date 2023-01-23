@@ -1,6 +1,6 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        k=len(m)
+        k=len(s)
         if(k>1):
             for i in range(k):
                 if(s.count(s[i])==1):
