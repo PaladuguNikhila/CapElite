@@ -1,0 +1,10 @@
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        k=len(m)
+        if(k>1):
+            for i in range(k):
+                if(s.count(s[i])==1):
+                    return i
+            return -1
+        else:
+            return 0 
