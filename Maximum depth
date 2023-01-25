@@ -1,0 +1,17 @@
+class Solution {
+    public int height(TreeNode root){
+        if(root!=null){
+            int left1=height(root.left);
+            int left2=height(root.right);
+            return Math.max(left1,left2)+1;
+        }
+        else{
+            return 0;
+        }
+    }
+
+    public int maxDepth(TreeNode root) {
+        return height(root);
+        
+    }
+}
