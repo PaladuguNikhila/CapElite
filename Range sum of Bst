@@ -1,0 +1,20 @@
+class Solution {
+    int total=0;
+    public void range(TreeNode root, int low, int high){
+        if(root!=null){
+            if(low<=root.val && root.val<=high){
+                total=total+root.val;
+            }
+            if(low<root.val || high<root.val){
+                range(root.left,low,high);
+            }
+            if(low>root.val || high>root.val){
+                range(root.right,low,high);
+            }    
+        }  
+    }
+    public int rangeSumBST(TreeNode root, int low, int high) {
+        range(root,low,high);
+        return total;  
+    }
+}
