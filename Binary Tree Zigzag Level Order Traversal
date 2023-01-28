@@ -1,0 +1,34 @@
+class Solution {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> result=new ArrayList<>();
+        Queue<TreeNode> inter=new LinkedList<>();
+        if(root==null){
+            return result;
+        }
+        inter.add(root);
+        int s=1;
+        while(!inter.isEmpty()){
+            int k=inter.size();
+            ArrayList<Integer> sec=new ArrayList<>();
+            for(int i=0;i<k;i++){
+                TreeNode med=inter.poll();
+                sec.add(med.val);
+                if(med.left!=null){
+                    inter.add(med.left);
+                }
+                if(med.right!=null){
+                    inter.add(med.right);
+                }
+        }
+        if(s%2==0){
+            Collections.reverse(sec);
+            result.add(sec);
+        }
+        else{
+            result.add(sec);
+        }
+        s=s+1;
+    }
+    return result;
+}
+}
