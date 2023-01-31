@@ -1,0 +1,27 @@
+class Solution {
+    public boolean isUnivalTree(TreeNode root) {
+        Queue<TreeNode> q=new LinkedList<>();
+        if(root==null){
+            return false;
+        }
+        q.add(root);
+        //int value=root.val;
+        while(!q.isEmpty()){
+            int k=q.size();
+            for(int i=0;i<k;i++){
+                TreeNode m=q.poll();
+                if(m.left!=null && (m.left.val==m.val)){
+                    q.add(m.left);
+                }
+                if((m.right!=null)&&(m.right.val==m.val)){
+                    q.add(m.right);
+                }
+                if((m.right!=null && m.right.val!=m.val) || (m.left!=null && m.left.val!=m.val)){
+                    return false;
+                }
+            }
+        }
+        return true;
+        
+    }
+}
